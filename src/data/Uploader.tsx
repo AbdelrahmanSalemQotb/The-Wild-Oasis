@@ -63,7 +63,7 @@ async function createBookings() {
       : 0; // hardcoded breakfast price
     const totalPrice = cabinPrice + extrasPrice;
 
-    let status;
+    let status = "";
     if (
       isPast(new Date(booking.endDate)) &&
       !isToday(new Date(booking.endDate))
@@ -96,7 +96,13 @@ async function createBookings() {
 
   console.log(finalBookings);
 
-  const { error } = await supabase.from("bookings").insert(finalBookings);
+  const validBookings = finalBookings.filter(
+    (
+      booking
+    ): booking is typeof booking & { guestId: number; cabinId: number } =>
+      booking.guestId !== undefined && booking.cabinId !== undefined
+  );
+  const { error } = await supabase.from("bookings").insert(validBookings);
   if (error) console.log(error.message);
 }
 
