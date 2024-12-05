@@ -4,6 +4,7 @@ import Form from "../../ui/Form/Form";
 import Input from "../../ui/Form/FormControls/Input";
 import FormRow from "../../ui/Form/FormRow";
 import { useUpdateUser } from "./useUpdateUser";
+import SpinnerMini from "../../ui/common/loaders/SpinnerMini";
 
 type UpdatePasswordFormData = {
   password: string;
@@ -67,7 +68,9 @@ function UpdatePasswordForm() {
           <Button onClick={() => reset()} type="reset" variation="secondary">
             Cancel
           </Button>
-          <Button disabled={isUpdating}>Update password</Button>
+          <Button disabled={isUpdating}>
+            {isUpdating ? <SpinnerMini /> : "Update password"}
+          </Button>
         </>
       </FormRow>
     </Form>

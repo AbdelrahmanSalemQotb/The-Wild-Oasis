@@ -9,6 +9,7 @@ import Input from "../../ui/Form/FormControls/Input";
 import { useUser } from "./useUser";
 import Spinner from "../../ui/common/loaders/Spinner";
 import { useUpdateUser } from "./useUpdateUser";
+import SpinnerMini from "../../ui/common/loaders/SpinnerMini";
 
 function UpdateUserDataForm() {
   const { user, isLoading } = useUser();
@@ -72,7 +73,9 @@ function UpdateUserDataForm() {
           >
             Cancel
           </Button>
-          <Button disabled={isUpdating}>Update account</Button>
+          <Button disabled={isUpdating}>
+            {isUpdating ? <SpinnerMini /> : "Update account"}
+          </Button>
         </>
       </FormRow>
     </Form>
