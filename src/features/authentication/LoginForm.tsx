@@ -7,8 +7,8 @@ import FormRow from "../../ui/Form/FormRow";
 import { useLogin } from "./useLogin";
 
 function LoginForm() {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState<string>("salem@test.com");
+  const [password, setPassword] = useState<string>("12345678");
   const { login, isLoading } = useLogin();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = function (e) {

@@ -26,6 +26,7 @@ const CommonRow = styled.div.withConfig({
   display: grid;
   grid-template-columns: ${(props) => props.columns};
   column-gap: 2.4rem;
+  justify-items: center;
   align-items: center;
   transition: none;
   max-width: 100%;
