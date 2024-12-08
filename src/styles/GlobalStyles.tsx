@@ -79,6 +79,7 @@ const GlobalStyles = createGlobalStyle`
   --image-grayscale: 10%;
   --image-opacity: 90%;
   }
+  --theme-color: var(--color-grey-50); 
   
   /* Indigo */
   --color-brand-50: #eef2ff;

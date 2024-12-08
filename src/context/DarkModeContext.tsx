@@ -46,6 +46,17 @@ export function DarkModeProvider({ children }: DarkModeProviderProps) {
         document.documentElement.classList.add("light-mode");
         document.documentElement.classList.remove("dark-mode");
       }
+      const themeColorMetaTag = document.querySelector(
+        'meta[name="theme-color"]'
+      );
+      if (themeColorMetaTag) {
+        themeColorMetaTag.setAttribute(
+          "content",
+          getComputedStyle(document.documentElement)
+            .getPropertyValue("--theme-color")
+            .trim()
+        );
+      }
     },
     [isDarkMode]
   );
