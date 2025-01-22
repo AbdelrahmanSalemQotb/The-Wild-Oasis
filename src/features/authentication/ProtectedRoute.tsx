@@ -7,11 +7,11 @@ type ProtectedRouteProps = {
   children: ReactNode;
 };
 function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const { isLoading, isAuthenticated } = useUser();
+  const { isLoading, isAuthenticated, user } = useUser();
 
   if (isLoading) return <FullpageSpinner />;
 
-  if (!isLoading && !isAuthenticated) return <Navigate to="/login" />;
+  if (!user || !isAuthenticated) return <Navigate to="/login" />;
 
   if (isAuthenticated) return children;
 }
